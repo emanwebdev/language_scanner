@@ -5,7 +5,7 @@
 		$found_keys = array();
 
 		if($language_keys = language_scanner_get_language_keys_from_plugin($plugin_name)) {
-			$plugin_files = language_scanner_get_plugin_files($plugin_name);			
+			$plugin_files = language_scanner_get_plugin_files($plugin_name);
 			$result['start_count'] = count($language_keys);
 			
 			// skip language key using for object's plugin
@@ -24,8 +24,8 @@
 							$found_key = true;
 						}
 						preg_match_all('/(?:elgg_echo|elgg.echo)\((?:\'|\")([^(\'|\")]*)(?:\'|\")/i', $content, $matches);
-						if ($matches[1]) $found_key = true;
-						
+						if (in_array($key, $matches[1])) $found_key = true;
+
 						if($found_key) {
 							$found_keys[$key] = $value;
 							unset($language_keys[$key]);
@@ -264,7 +264,7 @@
 				$missing_keys_var[$message_key] = $msg;
 			}
 			$result['missing_key_with_var'] = $missing_keys_var;
-			global $fb; $fb->info($language_keys_left);
+
 			return $result;
 		} else {
 			return false;
