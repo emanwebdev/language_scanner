@@ -1,0 +1,6 @@
+.git/
+*.tar.gz
+*~
+/.htaccess
+/.settings
+/.project
