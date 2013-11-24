@@ -1,2 +1,3 @@
 = Language scanner =
-Scan a plugin to find unused language keys
+
+Scan the plugins directory, aka /mod/, to find & list unused language keys
